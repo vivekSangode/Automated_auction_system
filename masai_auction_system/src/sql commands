@@ -1,0 +1,147 @@
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 52
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database masai_auction_system
+    -> create database masai_auction_system;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create database masai_auction_system' at line 2
+mysql> create database masai_auction_system;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> use  masai_auction_system;
+Database changed
+mysql> create table buyer
+    -> (
+    -> buyerId int primary key auto_increment,
+    -> buyerName varchar(15) not null,
+    -> email varchar(20) not null unique,
+    -> password varchar(15) not null,
+    -> location varchar(15)
+    -> );
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> create table seller
+    -> (
+    -> sellerId int primary key auto_increment,
+    -> sellerName varchar(15) not null,
+    -> email varchar(20) not null unique,
+    -> password varchar(15) not null,
+    -> location varchar(15)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table category
+    -> (
+    -> categoryId int primary key auto_increment,
+    -> categoryName varchar(20)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> alter table category auto_increment=1001;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into category
+    -> (categoryName)
+    -> values
+    -> ("Bikes"),
+    -> ("Cars"),
+    -> ("Watches"),
+    -> ("Shoes"),
+    -> ("Antique collection"),
+    -> ("Paintings"),
+    -> ("Alcohols"),
+    -> ("Swords");
+Query OK, 8 rows affected (0.02 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+
+mysql> create table products
+    -> (
+    -> productId int primary key auto_increment,
+    -> productName varchar(20) not null,
+    -> categoryId int,
+    -> buyerId int,
+    -> sellerId int,
+    -> price int,
+    -> status varchar(20) default 'available',
+    -> date Date,
+    -> foreign key (sellerId) references seller(sellerId),
+    -> foreign key (categoryId) references category(categoryId),
+    -> foreign key (buyerId) references buyer(buyerId)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> DESC products;
++-------------+-------------+------+-----+-----------+----------------+
+| Field       | Type        | Null | Key | Default   | Extra          |
++-------------+-------------+------+-----+-----------+----------------+
+| productId   | int         | NO   | PRI | NULL      | auto_increment |
+| productName | varchar(20) | NO   |     | NULL      |                |
+| categoryId  | int         | YES  | MUL | NULL      |                |
+| buyerId     | int         | YES  | MUL | NULL      |                |
+| sellerId    | int         | YES  | MUL | NULL      |                |
+| price       | int         | YES  |     | NULL      |                |
+| status      | varchar(20) | YES  |     | available |                |
+| date        | date        | YES  |     | NULL      |                |
++-------------+-------------+------+-----+-----------+----------------+
+8 rows in set (0.06 sec)
+
+mysql> DESC category;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| categoryId   | int         | NO   | PRI | NULL    | auto_increment |
+| categoryName | varchar(20) | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> Select * from category;
++------------+--------------------+
+| categoryId | categoryName       |
++------------+--------------------+
+|       1001 | Bikes              |
+|       1002 | Cars               |
+|       1003 | Watches            |
+|       1004 | Shoes              |
+|       1005 | Antique collection |
+|       1006 | Paintings          |
+|       1007 | Alcohols           |
+|       1008 | Swords             |
++------------+--------------------+
+8 rows in set (0.00 sec)
+
+mysql> desc buyer;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| buyerId   | int         | NO   | PRI | NULL    | auto_increment |
+| buyerName | varchar(15) | NO   |     | NULL    |                |
+| email     | varchar(20) | NO   | UNI | NULL    |                |
+| password  | varchar(15) | NO   |     | NULL    |                |
+| location  | varchar(15) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc seller;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| sellerId   | int         | NO   | PRI | NULL    | auto_increment |
+| sellerName | varchar(15) | NO   |     | NULL    |                |
+| email      | varchar(20) | NO   | UNI | NULL    |                |
+| password   | varchar(15) | NO   |     | NULL    |                |
+| location   | varchar(15) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)
+
+mysql>
