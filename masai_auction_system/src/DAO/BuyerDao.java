@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import DTO.Buyer;
+import DTO.SearchBuyer;
+import DTO.SoldItems;
 import Exception.BuyerException;
 import Exception.CredentialException;
 
@@ -14,7 +16,7 @@ public interface BuyerDao {
     
     public String BuyItem(int buyerId, LocalDate date,String productName) throws BuyerException;
     
-//    public List<SoldItemsDTO> searchItemByCategory(String categoryName) throws ByerException;
-//    
-//    public List<SearchBuyerDTO> ViewAllBuyersDetails(String categoryName) throws ByerException;
+    public List<SoldItems> searchItemByCategory(String categoryName) throws BuyerException;
+    
+    public List<SearchBuyer> ViewAllBuyersDetails(String categoryName) throws BuyerException;
 }
