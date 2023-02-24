@@ -10,7 +10,7 @@ import Exception.AdminException;
 import Exception.CredentialException;
 
 public interface AdminDao {
-	 public final String email="admin";
+	    public final String email="admin";
 	    public final String password="admin";
 
 	    public String AdminLogin(String email,String password) throws CredentialException;
