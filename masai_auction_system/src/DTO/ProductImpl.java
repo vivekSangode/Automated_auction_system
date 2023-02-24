@@ -2,7 +2,7 @@ package DTO;
 
 
 
-public class ProductImpl {
+public class ProductImpl implements Product{
 	private int productId;
     private String productName;
     private int categoryId;
