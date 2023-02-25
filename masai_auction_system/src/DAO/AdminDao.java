@@ -5,6 +5,7 @@ import java.util.List;
 import DTO.Buyer;
 import DTO.Product;
 import DTO.SearchBuyer;
+import DTO.SearchBuyerImpl;
 import DTO.Seller;
 import Exception.AdminException;
 import Exception.CredentialException;
@@ -19,7 +20,7 @@ public interface AdminDao {
 
 	    public List<Seller> ViewSellers() throws AdminException;
 
-	    public List<SearchBuyer>DailySellingReport(String date) throws AdminException;
+	    public List<SearchBuyerImpl> DailySellingReport(String date) throws AdminException;
 
 	    public List<Product> DailyDisputeReport(String date) throws AdminException;
 

@@ -5,20 +5,30 @@ public class SearchBuyerImpl implements SearchBuyer{
 	 private String buyerName;
 	 private String email;
 	 private String productName;
+	 private String categoryName;
 	 private int sellerId;
 	 private int price;
 	  
 	 public SearchBuyerImpl() {}
 	 
-	 public SearchBuyerImpl(int buyerId, String buyerName, String email, String productName, int sellerId, int price) {
+	 public SearchBuyerImpl(int buyerId, String buyerName, String email, String productName,String categoryName, int sellerId, int price) {
 		super();
 		this.buyerId = buyerId;
 		this.buyerName = buyerName;
 		this.email = email;
 		this.productName = productName;
+		this.categoryName = categoryName;
 		this.sellerId = sellerId;
 		this.price = price;
 	 }
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
 
 	public int getBuyerId() {
 		return buyerId;
