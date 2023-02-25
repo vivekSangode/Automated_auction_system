@@ -84,8 +84,8 @@ public class AdminDaoImpl implements AdminDao{
 	}
 
 	@Override
-	public List<SearchBuyer> DailySellingReport(String date) throws AdminException {
-		 List<SearchBuyer> list=new ArrayList<>();
+	public List<SearchBuyerImpl> DailySellingReport(String date) throws AdminException {
+		 List<SearchBuyerImpl> list=new ArrayList<>();
 
 	        try(Connection conn=DBUtils.connectToDatabase()) {
 
@@ -105,7 +105,7 @@ public class AdminDaoImpl implements AdminDao{
 	                searchBuyerDTO.setProductName(rs.getString("productName"));
 	                searchBuyerDTO.setSellerId(rs.getInt("sellerId"));
 	                searchBuyerDTO.setPrice(rs.getInt("price"));
-	                list.add(searchBuyerDTO);
+	                list.add((SearchBuyerImpl) searchBuyerDTO);
 	            }
 	            if(list.size()==0){
 	                throw new AdminException("No Item Sold on Date- "+date);

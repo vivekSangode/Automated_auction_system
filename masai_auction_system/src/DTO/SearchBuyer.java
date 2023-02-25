@@ -24,4 +24,8 @@ public interface SearchBuyer {
 	public int getPrice() ;
 
 	public void setPrice(int price) ;
+	
+	public String getCategoryName() ;
+
+	public void setCategoryName(String categoryName) ;
 }

@@ -21,6 +21,9 @@ public class ProductImpl implements Product{
 		this.price = price;
 		this.status = status;
 	}
+	public ProductImpl() {
+		
+	}
 	public int getProductId() {
 		return productId;
 	}

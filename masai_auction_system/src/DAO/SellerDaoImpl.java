@@ -86,8 +86,8 @@ public class SellerDaoImpl implements SellerDao{
 	            int count=0;
 	            for(int i=0;i<products.size();i++){
 	                String productName = products.get(i).getProductName();
-	                int sellerId = products.get(i).getSellerId();
 	                int categoryId = products.get(i).getCategoryId();
+	                int sellerId = products.get(i).getSellerId();
 	                int price = products.get(i).getPrice();
 	                PreparedStatement ps = null;
 	                try {
