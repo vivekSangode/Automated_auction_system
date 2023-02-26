@@ -21,7 +21,7 @@
     <li>Register himself or herself as seller.</li>
     <li>Create list of items to sell.</li>
     <li>Update Item price, quantity, etc.</li>
-    li>Add new Item in the list.</li>
+    <li>Add new Item in the list.</li>
     <li>Remove items from the list.</li>
     <li>View the sold Item history.</li>
 </ul>
@@ -30,7 +30,7 @@
     <li>Register himself or herself as Buyer.</li>
     <li>Search and view Items by category.</li>
     <li>Select and view all the buyers and also their Items category wise.</li>
-    li>Selects Items to buy.</li>
+    <li>Selects Items to buy.</li>
 </ul>
 
 
