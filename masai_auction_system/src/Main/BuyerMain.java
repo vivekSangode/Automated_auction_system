@@ -1,5 +1,6 @@
 package Main;
 
+import custom.ConsoleColors;
 import usecases.BuyItemUseCase;
 import usecases.BuyerLoginUsecase;
 import usecases.BuyerRegistrationUseCase;
@@ -13,10 +14,10 @@ public class BuyerMain {
         return result;
     }
     public static void BuyerHomeWindow() {
-        System.out.println("Press 1 to Search and view Items by category");
-        System.out.println("Press 2 to Selects Items to buy");
-        System.out.println("Press 3 to Select and view all the buyers and also their Items category wise");
-        System.out.println("Press 4 to LOGOUT AND RETURN TO HOMEPAGE");
+        System.out.println("Press 1 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" Search and view Items by category"+ ConsoleColors.RESET);
+        System.out.println("Press 2 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" Selects Items to buy"+ ConsoleColors.RESET);
+        System.out.println("Press 3 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" Select and view all the buyers and also their Items category wise"+ ConsoleColors.RESET);
+        System.out.println("Press 4 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" LOGOUT AND RETURN TO HOMEPAGE"+ ConsoleColors.RESET);
     }
     public static void BuyerRegistration(){
         BuyerRegistrationUseCase register=new BuyerRegistrationUseCase();

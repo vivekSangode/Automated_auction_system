@@ -26,11 +26,11 @@ public class HomePage {
 
                 while(!resulta) {
                     countadminLogin++;
-                    System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + (4-countadminLogin) +" Attempts remaining"+ ConsoleColors.RESET);
+                    System.out.println((4-countadminLogin) +" Attempts remaining");
                     resulta = adminMain.AdminLogin();
 
                     if(countadminLogin ==3 && resulta ==false) {
-                        System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "Maximum Limit Crossed : Try Again Later"+ ConsoleColors.RESET);
+                        System.out.println("Maximum Limit Crossed : Try Again Later");
                         break;
 
                     }
@@ -54,10 +54,10 @@ public class HomePage {
                         }else if(choiceAdmin.equals("5")){
                             adminMain.solveDispute();
                         }else if(choiceAdmin.equals("6")){
-                            System.out.println(ConsoleColors.GREEN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "LOGOUT SUCCESSFUL !" + ConsoleColors.RESET);
+                            System.out.println("LOGOUT SUCCESSFUL !");
                             break;
                         }else {
-                            System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "CHOOSE CORRECT INPUT RANGE FROM 1 TO 6" + ConsoleColors.RESET);
+                            System.out.println("CHOOSE CORRECT INPUT RANGE FROM 1 TO 6");
                         }
                     }
                     appOpening();
@@ -85,11 +85,11 @@ public class HomePage {
 
                 while(!resultb) {
                     countbuyerLogin++;
-                    System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + (4-countbuyerLogin) +" Attempts remaining"+ ConsoleColors.RESET);
+                    System.out.println((4-countbuyerLogin) +" Attempts remaining");
                     resultb = buyerMain.BuyerLogin();
 
                     if(countbuyerLogin ==3 && resultb ==false) {
-                        System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "Maximum Limit Crossed : Try Again Later"+ ConsoleColors.RESET);
+                        System.out.println( "Maximum Limit Crossed : Try Again Later");
                         break;
 
                     }
@@ -109,10 +109,10 @@ public class HomePage {
                         }else if (choiceAdmin.equals("3")) {
                             buyerMain.BuyerByCategory();
                         }else if(choiceAdmin.equals("4")){
-                            System.out.println(ConsoleColors.GREEN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "LOGOUT SUCCESSFUL !" + ConsoleColors.RESET);
+                            System.out.println("LOGOUT SUCCESSFUL !");
                             break;
                         }else {
-                            System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "CHOOSE CORRECT INPUT RANGE FROM 1 TO 4" + ConsoleColors.RESET);
+                            System.out.println("CHOOSE CORRECT INPUT RANGE FROM 1 TO 4");
                         }
                     }
                     appOpening();
@@ -140,11 +140,11 @@ public class HomePage {
 
                 while(!results) {
                     countsellerLogin++;
-                    System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + (4-countsellerLogin) +" Attempts remaining"+ ConsoleColors.RESET);
+                    System.out.println((4-countsellerLogin) +" Attempts remaining");
                     results = sellerMain.SellerLogin();
 
                     if(countsellerLogin ==3 && results ==false) {
-                        System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "Maximum Limit Crossed : Try Again Later"+ ConsoleColors.RESET);
+                        System.out.println("Maximum Limit Crossed : Try Again Later");
                         break;
 
                     }
@@ -166,10 +166,10 @@ public class HomePage {
                         }else if (choiceAdmin.equals("4")) {
                             sellerMain.soldItemHistory();
                         }else if(choiceAdmin.equals("5")){
-                            System.out.println(ConsoleColors.GREEN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "LOGOUT SUCCESSFUL !" + ConsoleColors.RESET);
+                            System.out.println( "LOGOUT SUCCESSFUL !");
                             break;
                         }else {
-                            System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "CHOOSE CORRECT INPUT RANGE FROM 1 TO 5" + ConsoleColors.RESET);
+                            System.out.println("CHOOSE CORRECT INPUT RANGE FROM 1 TO 5" );
                         }
                     }
                     appOpening();
@@ -182,20 +182,20 @@ public class HomePage {
                     System.out.println("-----------------------------------------------------------------------------------------------------");
                 }
             }else if(choice.equals("6")) {
-                System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "APPLICATION CLOSED : EXITED" + ConsoleColors.RESET);
+                System.out.println( "APPLICATION CLOSED : EXITED");
                 System.exit(0);
 
             }else {
-                System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + "CHOOSE CORRECT INPUT RANGE FROM 1 TO 6" + ConsoleColors.RESET);
+                System.out.println("CHOOSE CORRECT INPUT RANGE FROM 1 TO 6");
                 appOpening();
             }
 
 
 
         }catch (InputMismatchException e){
-            System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + e.getMessage() + ConsoleColors.RESET);
+            System.out.println( e.getMessage() );
         }catch (NoSuchElementException e) {
-            System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT + e.getMessage() + ConsoleColors.RESET);
+            System.out.println(e.getMessage());
         }
     }
     public static void main(String[] args) {

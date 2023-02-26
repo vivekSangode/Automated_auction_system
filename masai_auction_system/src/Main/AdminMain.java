@@ -1,5 +1,6 @@
 package Main;
 
+import custom.ConsoleColors;
 import usecases.AdminLoginUseCase;
 import usecases.DailyDisputeReportUseCase;
 import usecases.DailySellingReportUsecase;
@@ -14,12 +15,12 @@ public class AdminMain {
         return result;
     }
     public static void AdminHomeWindow() {
-        System.out.println("Press 1 to View the registered buyer list");
-        System.out.println("Press 2 to View the registered Seller list");
-        System.out.println("Press 3 to View the daily selling report");
-        System.out.println("Press 4 to View the daily dispute report");
-        System.out.println("Press 5 to Solve the dispute report");
-        System.out.println("Press 6 to LOGOUT AND RETURN TO HOMEPAGE");
+        System.out.println("Press 1 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" View the registered buyer list"+ ConsoleColors.RESET);
+        System.out.println("Press 2 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" View the registered Seller list"+ ConsoleColors.RESET);
+        System.out.println("Press 3 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" View the daily selling report"+ ConsoleColors.RESET);
+        System.out.println("Press 4 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" View the daily dispute report"+ ConsoleColors.RESET);
+        System.out.println("Press 5 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" Solve the dispute report"+ ConsoleColors.RESET);
+        System.out.println("Press 6 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" LOGOUT AND RETURN TO HOMEPAGE"+ ConsoleColors.RESET);
     }
     public static void viewBuyers(){
         ViewBuyerListUseCase viewBuyerListUseCase=new ViewBuyerListUseCase();

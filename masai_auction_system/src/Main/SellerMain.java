@@ -1,5 +1,6 @@
 package Main;
 
+import custom.ConsoleColors;
 import usecases.CreateProductListUseCase;
 import usecases.DeleteProductItemUseCase;
 import usecases.SellerLoginUseCase;
@@ -14,11 +15,11 @@ public class SellerMain {
         return result;
     }
     public static void SellerHomeWindow() {
-        System.out.println("Press 1 to Create list of items to sell");
-        System.out.println("Press 2 to Update Item price");
-        System.out.println("Press 3 to Remove items from the list");
-        System.out.println("Press 4 to View the sold Item history" );
-        System.out.println("Press 5 to LOGOUT AND RETURN TO HOMEPAGE");
+        System.out.println("Press 1 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" Create list of items to sell"+ ConsoleColors.RESET);
+        System.out.println("Press 2 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" Update Item price"+ ConsoleColors.RESET);
+        System.out.println("Press 3 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" Remove items from the list"+ ConsoleColors.RESET);
+        System.out.println("Press 4 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" View the sold Item history"+ ConsoleColors.RESET);
+        System.out.println("Press 5 to"+ ConsoleColors.PURPLE_BOLD_BRIGHT +" LOGOUT AND RETURN TO HOMEPAGE"+ ConsoleColors.RESET);
     }
     public static void SellerRegistration(){
         SellerRegistrationUseCase register=new SellerRegistrationUseCase();
