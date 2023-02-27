@@ -16,21 +16,21 @@ public class ViewBuyerListUseCase {
         AdminDao dao=new AdminDaoImpl();
         try {
             List<Buyer> list=dao.ViewBuyers();
-            System.out.println("--------------------------Table of all the Buyers---------------------------");
+            System.out.println("-------------------------------Table of all the Buyers----------------------------------");
 
-            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------");
 
-            System.out.printf("%7s %12s %10s %25s", "BuyerId", "BuyerName","Email", "Location" );
+            System.out.printf("%7s %14s %20s %25s", "BuyerId", "BuyerName","Email", "Location" );
             System.out.println();
-            System.out.print("---------------------------------------------------------------------------------");
+            System.out.print("--------------------------------------------------------------------------------------");
 
             System.out.println();
             list.forEach(li->{
-                System.out.format("%2s %14s %20s %13s",li.getBuyerId(),li.getBuyerName(),li.getEmail(),li.getLocation());
+                System.out.format("%7s %14s %20s %25s",li.getBuyerId(),li.getBuyerName(),li.getEmail(),li.getLocation());
                 System.out.println();
 
             });
-            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------");
 
         } catch (AdminException e) {
             System.out.println( e.getMessage() );

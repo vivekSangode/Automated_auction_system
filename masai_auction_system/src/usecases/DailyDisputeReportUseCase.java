@@ -20,21 +20,21 @@ public class DailyDisputeReportUseCase {
         AdminDao dao=new AdminDaoImpl();
         try {
             List<Product> list= dao.DailyDisputeReport(date);
-            System.out.println("---------------------Date Wise Dispute Report---------------------------");
+            System.out.println("------------------------------Date Wise Dispute Report----------------------------------");
 
             System.out.println("---------------------------------------------------------------------------------------------");
 
-            System.out.printf("%7s %13s %7s %12s %12s","Id", "ProductName","SellerId","CategoryId","Price");
+            System.out.printf("%7s %18s %7s %7s %12s","Id", "ProductName","SellerId","CategoryId","Price");
             System.out.println();
             System.out.print("----------------------------------------------------------------------------------------------");
 
             System.out.println();
             list.forEach(li->{
-                System.out.format("%2s %10s %8s %10s %12s",li.getProductId(),li.getProductName(),li.getSellerId(),li.getCategoryId(),li.getPrice());
+                System.out.format("%7s %18s %7s %7s %17s",li.getProductId(),li.getProductName(),li.getSellerId(),li.getCategoryId(),li.getPrice());
                 System.out.println();
 
             });
-            System.out.println("-------------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------");
 
         } catch (AdminException e) {
             System.out.println( e.getMessage() );

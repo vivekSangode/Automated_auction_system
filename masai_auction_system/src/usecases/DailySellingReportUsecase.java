@@ -21,21 +21,21 @@ public class DailySellingReportUsecase {
         AdminDao dao=new AdminDaoImpl();
         try {
             List<SearchBuyerImpl> list= dao.DailySellingReport(date);
-            System.out.println("---------------------Daily Selling Report--------------------------");
+            System.out.println("---------------------------------Daily Selling Report-------------------------------------");
 
-            System.out.println("---------------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------");
 
-            System.out.printf("%7s %13s %12s %15s %10s %13s %10s", "Id", "BuyerName","email","ProductName","CategoryName","SellerName","Price");
+            System.out.printf("%7s %15s %20s %20s %15s %7s %12s", "Id", "BuyerName","email","ProductName","CategoryName","SellerID","Price");
             System.out.println();
-            System.out.print("----------------------------------------------------------------------------------------------");
+            System.out.print("----------------------------------------------------------------------------------------------------------");
 
             System.out.println();
             list.forEach(li->{
-                System.out.format("%2s %10s %18s %12s %12s %11s %12s",li.getBuyerId(),li.getBuyerName(),li.getEmail(),li.getProductName(),li.getSellerId(),li.getPrice());
+                System.out.format("%7s %15s %20s %20s %15s %7s %15s",li.getBuyerId(),li.getBuyerName(),li.getEmail(),li.getProductName(),li.getCategoryName(),li.getSellerId(),li.getPrice());
                 System.out.println();
 
             });
-            System.out.println("-------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------");
 
         } catch (AdminException e) {
             System.out.println( e.getMessage() );

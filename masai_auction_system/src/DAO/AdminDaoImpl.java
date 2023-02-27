@@ -89,7 +89,7 @@ public class AdminDaoImpl implements AdminDao{
 
 	        try(Connection conn=DBUtils.connectToDatabase()) {
 
-	            PreparedStatement ps=conn.prepareStatement("select b.buyerId,b.buyerName,b.email,p.productName,c.categoryName,s.sellerName,p.price from products p " +
+	            PreparedStatement ps=conn.prepareStatement("select b.buyerId,b.buyerName,b.email,p.productName,c.categoryName,s.sellerId,p.price from products p " +
 	                    "Inner Join category c Inner Join seller s Inner Join buyer b " +
 	                    "On p.categoryId=c.categoryId and p.sellerId=s.sellerId and p.buyerId=b.buyerId " +
 	                    "where p.date=?");
@@ -102,6 +102,7 @@ public class AdminDaoImpl implements AdminDao{
 	                searchBuyerDTO.setBuyerId(rs.getInt("buyerId"));
 	                searchBuyerDTO.setBuyerName(rs.getString("buyerName"));
 	                searchBuyerDTO.setEmail(rs.getString("email"));
+	                searchBuyerDTO.setCategoryName(rs.getString("categoryName"));
 	                searchBuyerDTO.setProductName(rs.getString("productName"));
 	                searchBuyerDTO.setSellerId(rs.getInt("sellerId"));
 	                searchBuyerDTO.setPrice(rs.getInt("price"));

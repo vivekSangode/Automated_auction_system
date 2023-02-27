@@ -21,21 +21,21 @@ public class SoldItemHistoryListUseCase {
         SellerDao dao=new SellerDaoImpl();
         try {
             List<SoldItems> list=dao.SoldItemHistory(sellerId);
-            System.out.println("---------------------Table of all the Sold Items--------------------------");
+            System.out.println("----------------------------Table of all the Sold Items------------------------------");
 
-            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------");
 
-            System.out.printf("%7s %13s %15s %15s %10s %15s","Id", "ProductName","SellerName","CategoryName","Price", "Status" );
+            System.out.printf("%7s %20s %20s %20s %12s","Id", "ProductName","SellerName","CategoryName","Price");
             System.out.println();
-            System.out.print("---------------------------------------------------------------------------------");
+            System.out.print("-------------------------------------------------------------------------------------");
 
             System.out.println();
             list.forEach(li->{
-                System.out.format("%2s %12s %12s %16s %13s %14s",li.getProductId(),li.getProductName(),li.getSellerName(),li.getCategoryName(),li.getPrice());
+                System.out.format("%7s %20s %20s %20s %12s",li.getProductId(),li.getProductName(),li.getSellerName(),li.getCategoryName(),li.getPrice());
                 System.out.println();
 
             });
-            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------");
 
         } catch (SellerException e) {
             System.out.println(e.getMessage());

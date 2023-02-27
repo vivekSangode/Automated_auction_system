@@ -29,21 +29,21 @@ public class SearchBuyerbyCategoryNameUseCase {
         BuyerDao dao=new BuyerDaoImpl();
         try {
             List<SearchBuyer> list= dao.ViewAllBuyersDetails(category);
-            System.out.println("---------------------Search Buyer By Category Name--------------------------");
+            System.out.println("-------------------------------------Search Buyer By Category Name----------------------------------------");
 
-            System.out.println("---------------------------------------------------------------------------------------------");
+            System.out.println("---------------------------------------------------------------------------------------------------------");
 
-            System.out.printf("%7s %13s %12s %15s %10s %13s %10s","Id","BuyerName","email","ProductName","CategoryName","SellerId","Price");
+            System.out.printf("%7s %13s %20s %20s %13s %13s %10s","Id","BuyerName","email","ProductName","CategoryName","SellerId","Price");
             System.out.println();
-            System.out.print("----------------------------------------------------------------------------------------------");
+            System.out.print("-------------------------------------------------------------------------------------------------------------");
 
             System.out.println();
             list.forEach(li->{
-                System.out.format("%7s %13s %12s %15s %10s %13s %10s",li.getBuyerId(),li.getBuyerName(),li.getEmail(),li.getProductName(),li.getCategoryName(), li.getSellerId(),li.getPrice());
+                System.out.format("%7s %13s %20s %20s %13s %13s %10s",li.getBuyerId(),li.getBuyerName(),li.getEmail(),li.getProductName(),li.getCategoryName(), li.getSellerId(),li.getPrice());
                 System.out.println();
 
             });
-            System.out.println("-------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------");
 
         } catch (BuyerException e) {
             System.out.println( e.getMessage());

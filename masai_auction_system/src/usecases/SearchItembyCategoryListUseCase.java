@@ -30,7 +30,7 @@ public class SearchItembyCategoryListUseCase {
         BuyerDao dao=new BuyerDaoImpl();
         try {
             List<SoldItems> list= dao.searchItemByCategory(category);
-            System.out.println("---------------------Search Product By Category--------------------------");
+            System.out.println("-----------------------------Search Product By Category--------------------------");
 
             System.out.println("---------------------------------------------------------------------------------");
 
