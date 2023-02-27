@@ -33,4 +33,5 @@
     <li>Selects Items to buy.</li>
 </ul>
 
-
+<h2></h2>
+<img src="https://github.com/vivekSangode/honest-doctor-7537/blob/main/ERD.PNG" alt="ERD">
