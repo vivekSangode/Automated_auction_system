@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import DTO.Buyer;
 import DTO.BuyerImpl;
 import DTO.SearchBuyer;
@@ -20,10 +19,19 @@ import Exception.CredentialException;
 import utility.DBUtils;
 
 public class BuyerDaoImpl implements BuyerDao{
-
+    
+	HashingPassword hashingPassword = new HashingPassword();
+	
+	EmailValidation emailValidation =  new EmailValidation();
+	
 	@Override
 	public Buyer BuyerLogin(String email, String password) throws CredentialException {
 		Buyer b = null;
+		
+		if(emailValidation.emailValidation(email)=="Invalid") {
+			throw new CredentialException("Wrong email address plese provide right syntax of email.");
+		}
+		password = hashingPassword.hashingAlgorithem(password);
 		try {
 			Connection conn = DBUtils.connectToDatabase();
 			PreparedStatement ps = conn.prepareStatement("select * from Buyer where email = ? and password = ?");
@@ -35,7 +43,7 @@ public class BuyerDaoImpl implements BuyerDao{
 				int buyerId = rs.getInt("buyerId");
 				String buyerName = rs.getString("BuyerName");
 				String buyeremail = rs.getString("email");
-				String buyerpassword = "********";
+				String buyerpassword = rs.getString("password");
 				String location = rs.getString("location");
 				b = new BuyerImpl(buyerId,buyerName,buyeremail,buyerpassword,location);
 			}else {
@@ -51,7 +59,13 @@ public class BuyerDaoImpl implements BuyerDao{
 	@Override
 	public String RegisterBuyer(Buyer buyer) throws BuyerException {
 		String result="Not Registered-Bad Details (Enter Unique Email)";
-
+		buyer.setPassword(hashingPassword.hashingAlgorithem(buyer.getPassword()));
+		if(emailValidation.emailValidation(buyer.getEmail())=="Invalid") {
+			throw new BuyerException("Wrong email address plese provide right syntax of email.");
+		}
+		if(buyer.getPassword()==null) {
+			throw new BuyerException("Password can't be Empty");
+		}
         try(Connection conn=DBUtils.connectToDatabase()) {
             PreparedStatement ps=conn.prepareStatement("insert into buyer (buyerName,email,password,location) values (?,?,?,?)");
 

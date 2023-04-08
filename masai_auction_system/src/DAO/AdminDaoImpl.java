@@ -20,7 +20,7 @@ import Exception.CredentialException;
 import utility.DBUtils;
 
 public class AdminDaoImpl implements AdminDao{
-
+	
 	@Override
 	public String AdminLogin(String email, String password) throws CredentialException {
 		 String result="Invalid email/password";

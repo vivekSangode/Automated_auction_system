@@ -12,15 +12,26 @@ import DTO.Seller;
 import DTO.SellerImpl;
 import DTO.SoldItems;
 import DTO.SoldItemsImpl;
+import Exception.BuyerException;
+import Exception.CredentialException;
 import Exception.SellerException;
 import utility.DBUtils;
 
 public class SellerDaoImpl implements SellerDao{
 
+	HashingPassword hashingPassword = new HashingPassword();
+	
+	EmailValidation emailValidation =  new EmailValidation();
+	
 	@Override
 	public Seller SellerLogin(String email, String password) throws SellerException {
 		Seller seller=null;
 
+		if(emailValidation.emailValidation(email)=="Invalid") {
+			throw new SellerException("Wrong email address plese provide right syntax of email.");
+		}
+		password = hashingPassword.hashingAlgorithem(password);
+		
         try(Connection conn= DBUtils.connectToDatabase()){
 
             PreparedStatement ps=conn.prepareStatement("Select * from seller where email=? AND password=?");
@@ -53,7 +64,13 @@ public class SellerDaoImpl implements SellerDao{
 	@Override
 	public String RegisterSeller(Seller seller) throws SellerException {
 		String result="Not Registered-Bad Details (Enter Unique Email)";
-
+		seller.setPassword(hashingPassword.hashingAlgorithem(seller.getPassword()));
+		if(emailValidation.emailValidation(seller.getEmail())=="Invalid") {
+			throw new SellerException("Wrong email address plese provide right syntax of email.");
+		}
+		if(seller.getPassword()==null) {
+			throw new SellerException("Password can't be Empty");
+		}
         try(Connection conn=DBUtils.connectToDatabase()) {
             PreparedStatement ps=conn.prepareStatement("insert into seller (sellerName,email,password,location) values (?,?,?,?)");
 
