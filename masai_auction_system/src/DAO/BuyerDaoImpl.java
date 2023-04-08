@@ -24,6 +24,10 @@ public class BuyerDaoImpl implements BuyerDao{
 	
 	EmailValidation emailValidation =  new EmailValidation();
 	
+	/*
+	 * Login Method for Buyer with the help of unique email and password
+	 * @return Buyer object
+	 */
 	@Override
 	public Buyer BuyerLogin(String email, String password) throws CredentialException {
 		Buyer b = null;
@@ -56,6 +60,10 @@ public class BuyerDaoImpl implements BuyerDao{
 		return b;
 	}
 
+	/*
+	 * A method used for Registered a new Buyer
+	 * @return String
+	 */
 	@Override
 	public String RegisterBuyer(Buyer buyer) throws BuyerException {
 		String result="Not Registered-Bad Details (Enter Unique Email)";
@@ -88,6 +96,10 @@ public class BuyerDaoImpl implements BuyerDao{
         return result;
 	}
 
+	/*
+	 * A method used to buy items which are added by seller
+	 * @return String
+	 */
 	@Override
 	public String BuyItem(int buyerId, LocalDate date, String productName) throws BuyerException {
 		String result = null;
@@ -127,6 +139,10 @@ public class BuyerDaoImpl implements BuyerDao{
 		
 	}
 
+	    /*
+		 * A method used to search item by its category
+		 * @return list of sold items
+		 */
 	@Override
 	public List<SoldItems> searchItemByCategory(String categoryName) throws BuyerException {
 		List<SoldItems> list=new ArrayList<>();
@@ -160,6 +176,10 @@ public class BuyerDaoImpl implements BuyerDao{
         return list;
 	}
 
+	/*
+   	 * A method used to get all registered buyers
+   	 * @return list of sold items
+   	 */
 	@Override
 	public List<SearchBuyer> ViewAllBuyersDetails(String categoryName) throws BuyerException {
 		 List<SearchBuyer> list=new ArrayList<>();

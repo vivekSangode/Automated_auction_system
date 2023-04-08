@@ -21,6 +21,12 @@ import utility.DBUtils;
 
 public class AdminDaoImpl implements AdminDao{
 	
+
+    /*
+     * The login method use for signin admin with the help of 
+     * default admin,admin email and password.
+     * argument are: email, string. 
+     */
 	@Override
 	public String AdminLogin(String email, String password) throws CredentialException {
 		 String result="Invalid email/password";
@@ -33,6 +39,10 @@ public class AdminDaoImpl implements AdminDao{
 		 return result;
 	}
 
+	/*
+     * The get method use to see all the Buyers present in database
+     * no argument passed
+     */
 	@Override
 	public List<Buyer> ViewBuyers() throws AdminException {
 		List<Buyer> list=new ArrayList<>();
@@ -58,6 +68,10 @@ public class AdminDaoImpl implements AdminDao{
         return list;
 	}
 
+	/*
+     * The get method use to see all the Buyers present in database
+     * no argument passed
+     */
 	@Override
 	public List<Seller> ViewSellers() throws AdminException {
 		List<Seller> list=new ArrayList<>();
@@ -83,6 +97,10 @@ public class AdminDaoImpl implements AdminDao{
         return list;
 	}
 
+	/*
+     * The get Buyer Method use to see Daily Sellig Report
+     * if date passed as argument. 
+     */
 	@Override
 	public List<SearchBuyerImpl> DailySellingReport(String date) throws AdminException {
 		 List<SearchBuyerImpl> list=new ArrayList<>();
@@ -118,6 +136,10 @@ public class AdminDaoImpl implements AdminDao{
 	        return list;
 	}
 
+	/*
+     * The get Product Method use to see Daily Dispute Report
+     * if date passed as argument. 
+     */
 	@Override
 	public List<Product> DailyDisputeReport(String date) throws AdminException {
 		List<Product> list=new ArrayList<>();
@@ -150,6 +172,10 @@ public class AdminDaoImpl implements AdminDao{
         return list;
 	}
 
+	/*
+     * The method use to Solve Dispute
+     * if categoryId and productId passed as argument. 
+     */
 	@Override
 	public String SolveDispute(int categoryId, int productId) throws AdminException {
 		 String result;

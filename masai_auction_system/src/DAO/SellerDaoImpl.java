@@ -23,6 +23,11 @@ public class SellerDaoImpl implements SellerDao{
 	
 	EmailValidation emailValidation =  new EmailValidation();
 	
+	
+	/*
+	 * Login Method for seller with the help of unique email and password
+	 * @return Seller object
+	 */
 	@Override
 	public Seller SellerLogin(String email, String password) throws SellerException {
 		Seller seller=null;
@@ -61,6 +66,12 @@ public class SellerDaoImpl implements SellerDao{
         return seller;
 	}
 
+	
+
+	 /*
+	  * A method used for Registered a new Seller
+	  * @return String
+	  */
 	@Override
 	public String RegisterSeller(Seller seller) throws SellerException {
 		String result="Not Registered-Bad Details (Enter Unique Email)";
@@ -95,6 +106,10 @@ public class SellerDaoImpl implements SellerDao{
         return result;
 	}
 
+	 /*
+	  * A method use to create a list of project to sell
+	  * @return String
+	  */
 	@Override
 	public String CreateListofProductstoSell(List<Product> products) throws SellerException {
 		 String result="Not Listed";
@@ -131,6 +146,10 @@ public class SellerDaoImpl implements SellerDao{
 	        return result;
 	}
 
+	 /*
+	  * A method use to update product price
+	  * @return String
+	  */
 	@Override
 	public String UpdateProductPrice(int productId, int price) throws SellerException {
 		String result;
@@ -157,6 +176,10 @@ public class SellerDaoImpl implements SellerDao{
         return result;
 	}
 
+	 /*
+	  * A method use to delete product from seller list
+	  * @return String
+	  */
 	@Override
 	public String DeleteProductItems(int productId) throws SellerException {
 		 String result;
@@ -182,6 +205,10 @@ public class SellerDaoImpl implements SellerDao{
 	        return result;
 	}
 
+	 /*
+	  * A method use to get list of sold Item
+	  * @return list of sold items
+	  */
 	@Override
 	public List<SoldItems> SoldItemHistory(int sellerId) throws SellerException {
 		List<SoldItems> list=new ArrayList<>();
